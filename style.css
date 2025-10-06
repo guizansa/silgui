@@ -1,0 +1,170 @@
+/* Definição de Variáveis CSS para Cores e Espaçamento */
+:root {
+    --cor-principal: #0077ff;
+    --cor-secundaria: #005fd1;
+    --cor-fundo: #f3f3f3;
+    --cor-texto: #333;
+    --sombra-caixa: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --borda-raio: 8px;
+    --espacamento-padrao: 1rem;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+    padding: var(--espacamento-padrao);
+    min-height: 100vh;
+  }
+  
+  h1 {
+    margin-bottom: var(--espacamento-padrao);
+    color: var(--cor-principal);
+  }
+  
+  .container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que as colunas se quebrem em telas menores */
+    width: 100%;
+    max-width: 1200px; /* Limita a largura máxima do conteúdo */
+  }
+  
+  .coluna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--espacamento-padrao);
+    flex: 1; /* Permite que as colunas ocupem espaço igual */
+    min-width: 300px; /* Garante um tamanho mínimo para melhor responsividade */
+  }
+  
+  /* Estilo para a área de visualização principal */
+  .preview {
+    position: relative;
+    width: 480px; /* Largura padrão */
+    height: 360px; /* Altura padrão */
+    max-width: 100%; /* Garante que não ultrapasse a coluna */
+    margin-bottom: var(--espacamento-padrao);
+  }
+  
+  video, canvas {
+    background-color: #000;
+    border-radius: var(--borda-raio);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Sombra mais destacada */
+    display: block; /* Garante que ocupe a linha inteira */
+  }
+  
+  .preview canvas,
+  .preview video,
+  #webcam {
+    width: 100%; /* Ajusta ao tamanho do .preview ou da coluna */
+    height: auto; /* Mantém a proporção */
+    aspect-ratio: 4 / 3; /* Proporção 4:3 */
+  }
+  
+  .preview canvas,
+  .preview video {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .preview video {
+    /* O vídeo gravado (#gravado) começa oculto e é exibido via JS */
+    display: none;
+  }
+  
+  #webcam {
+      /* O vídeo de visualização (#webcam) precisa ter o mesmo estilo */
+      width: 480px;
+      height: 360px;
+      max-width: 100%;
+  }
+  
+  .controles, .opcoes, .acoes {
+    margin-top: var(--espacamento-padrao);
+    display: flex;
+    gap: var(--espacamento-padrao);
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Estilo dos Botões e Selects */
+  button, select {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--cor-principal);
+    color: #fff;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.1s;
+  }
+  
+  button:hover {
+    background: var(--cor-secundaria);
+    transform: translateY(-1px);
+  }
+  
+  select {
+      background: #fff;
+      color: var(--cor-principal);
+      border: 2px solid var(--cor-principal);
+  }
+  
+  #feedback {
+    margin-top: 0.5rem;
+    font-style: italic;
+    min-height: 1.2rem; /* Reserva espaço para evitar "pulinhos" no layout */
+  }
+  
+  /* Adesivos */
+  .adesivos {
+    margin-top: var(--espacamento-padrao);
+    text-align: center;
+  }
+  
+  .adesivo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    cursor: pointer;
+    margin: 0.3rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .adesivo:hover {
+    transform: scale(1.3) rotate(5deg);
+  }
+  
+  /* Estilos de Filtro (Aplicados no elemento <video> ou como fallback) */
+  .preto-e-branco {
+    filter: grayscale(100%);
+  }
+  
+  .sepia {
+    filter: sepia(100%);
+  }
+  
+  /* Media Query para telas menores (Responsividade) */
+  @media (max-width: 1000px) {
+      .container {
+          flex-direction: column;
+      }
+  
+      .coluna {
+          min-width: 100%;
+      }
+      
+      .preview, #webcam {
+          width: 100%;
+          height: auto;
+      }
+  }

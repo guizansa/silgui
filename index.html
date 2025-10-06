@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estúdio Criativo de Webcam</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>🎬 Estúdio Criativo de Webcam</h1>
+
+  <div class="opcoes">
+    <label for="modo">Modo:</label>
+    <select id="modo">
+      <option value="foto">📷 Foto</option>
+      <option value="video">🎥 Vídeo</option>
+    </select>
+
+    <label for="filtro">Filtro:</label>
+    <select id="filtro">
+      <option value="normal">Normal</option>
+      <option value="preto-e-branco">Preto & Branco</option>
+      <option value="sepia">Sépia</option>
+    </select>
+  </div>
+
+  <div class="container">
+    <div class="coluna">
+      <h2>Ao Vivo</h2>
+      <video id="webcam" width="480" height="360" autoplay muted></video>
+
+      <div class="controles">
+        <button id="ligar">Ligar</button>
+        <button id="capturar">Capturar</button>
+        <button id="desligar">Desligar</button>
+      </div>
+      <p id="feedback"></p>
+    </div>
+
+    <div class="coluna">
+      <h2>Resultado</h2>
+
+      <!-- 📷 Aqui ficam sobrepostos o canvas e o vídeo gravado -->
+      <div class="preview">
+        <canvas id="tela" width="480" height="360"></canvas>
+        <video id="gravado" width="480" height="360" controls></video>
+      </div>
+
+      <div class="adesivos">
+        <h3>Adesivos</h3>
+        <img src="https://www.pngarts.com/files/3/Smile-Emoji-Face-PNG-Transparent-Image.png" class="adesivo" alt="estrela">
+        <img src="https://www.pngarts.com/files/11/Angry-Cartoon-PNG-Download-Image.png" class="adesivo" alt="oculos">
+        <img src="https://www.pngarts.com/files/10/Whatsapp-Emoji-PNG-Image-Transparent-Background.png" class="adesivo" alt="risada">
+      </div>
+
+      <div class="acoes">
+        <button id="baixar">Baixar Imagem</button>
+        <button id="downloadVideo">Baixar Vídeo</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
